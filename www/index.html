@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bus Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-bus"></i>
+          <h1>BusTracker</h1>
+        </div>
+        <nav>
+          <button class="nav-btn active"><i class="fas fa-map-marked-alt"></i> Map</button>
+          <button class="nav-btn"><i class="fas fa-route"></i> Routes</button>
+          <button class="nav-btn"><i class="fas fa-clock"></i> Schedule</button>
+          <button class="nav-btn"><i class="fas fa-bell"></i> Alerts</button>
+        </nav>
+      </header>
+
+      <main>
+        <div class="sidebar">
+          <div class="search-box">
+            <input type="text" placeholder="Search routes, stops...">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          
+          <div class="bus-list">
+            <h3>Nearby Buses</h3>
+            <div class="bus-item active" data-bus-id="1">
+              <div class="bus-number">101</div>
+              <div class="bus-info">
+                <div class="bus-route">Downtown - Airport</div>
+                <div class="bus-status"><i class="fas fa-circle"></i> On time</div>
+              </div>
+              <div class="bus-eta">3 min</div>
+            </div>
+            
+            <div class="bus-item" data-bus-id="2">
+              <div class="bus-number">202</div>
+              <div class="bus-info">
+                <div class="bus-route">Central Station - University</div>
+                <div class="bus-status"><i class="fas fa-circle"></i> On time</div>
+              </div>
+              <div class="bus-eta">7 min</div>
+            </div>
+            
+            <div class="bus-item" data-bus-id="3">
+              <div class="bus-number">305</div>
+              <div class="bus-info">
+                <div class="bus-route">Shopping Mall - Beach</div>
+                <div class="bus-status delayed"><i class="fas fa-circle"></i> Delayed</div>
+              </div>
+              <div class="bus-eta">12 min</div>
+            </div>
+          </div>
+          
+          <div class="favorites">
+            <h3>Favorite Routes</h3>
+            <div class="favorite-item">
+              <i class="fas fa-star"></i> Route 101: Downtown - Airport
+            </div>
+            <div class="favorite-item">
+              <i class="fas fa-star"></i> Route 305: Shopping Mall - Beach
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <div id="map"></div>
+          <div class="map-controls">
+            <button class="control-btn" id="locate-me"><i class="fas fa-location-arrow"></i></button>
+            <button class="control-btn" id="zoom-in"><i class="fas fa-plus"></i></button>
+            <button class="control-btn" id="zoom-out"><i class="fas fa-minus"></i></button>
+          </div>
+        </div>
+      </main>
+      
+      <div class="bus-details-panel">
+        <div class="panel-header">
+          <h3>Bus #101</h3>
+          <button class="close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="route-info">
+          <div class="route-name">Downtown - Airport</div>
+          <div class="bus-status"><i class="fas fa-circle"></i> On time</div>
+        </div>
+        <div class="next-stops">
+          <h4>Next Stops</h4>
+          <div class="stop-item">
+            <div class="stop-time">10:15 AM</div>
+            <div class="stop-name">Central Station</div>
+            <div class="stop-eta">3 min</div>
+          </div>
+          <div class="stop-item">
+            <div class="stop-time">10:22 AM</div>
+            <div class="stop-name">City Hall</div>
+            <div class="stop-eta">10 min</div>
+          </div>
+          <div class="stop-item">
+            <div class="stop-time">10:30 AM</div>
+            <div class="stop-name">Convention Center</div>
+            <div class="stop-eta">18 min</div>
+          </div>
+          <div class="stop-item">
+            <div class="stop-time">10:45 AM</div>
+            <div class="stop-name">Airport Terminal</div>
+            <div class="stop-eta">33 min</div>
+          </div>
+        </div>
+        <div class="bus-actions">
+          <button class="action-btn"><i class="fas fa-bell"></i> Set Alert</button>
+          <button class="action-btn"><i class="fas fa-star"></i> Add to Favorites</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
